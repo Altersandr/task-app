@@ -1,25 +1,38 @@
 import React, { Component } from "react";
 
-class Tasks extends Component {
-  constructor(props) {
-    super(props);
-    this.TaskList = this.TaskList.bind(this);
-  }
+// class Tasks extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.TaskList = this.TaskList.bind(this);
+//   }
 
-  TaskList() {
-    const tasks = this.props.tasks.map((task) => (
-      <li key={task.id}>{task.todo}</li>
-    ));
-    return <ul>{tasks}</ul>;
-  }
+//   TaskList() {
+//     const tasks = this.props.tasks.map((task) => (
+//       <li key={task.id}>{task.todo}</li>
+//     ));
+//     return <ul>{tasks}</ul>;
+//   }
 
-  render() {
-    return (
-      <div>
-        <this.TaskList />
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div>
+//         <this.TaskList />
+//       </div>
+//     );
+//   }
+// }
 
-export default Tasks;
+// export default Tasks;
+
+const Overview = (props) => {
+  const { tasks } = props;
+  return (
+    <ul>
+      {tasks.map((task) => (
+        <li key={task.id}>{task.text}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default Overview;
