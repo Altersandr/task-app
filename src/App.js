@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Overview from "./components/Overview";
+import DeleteTask from "./components/DeleteBtn";
 
 // function App() {
 //   const [list, setList] = useState([]);
@@ -53,6 +54,12 @@ class App extends Component {
     });
   };
 
+  onDeleteBtn = (id) => {
+    this.setState({
+      tasks: [...this.state.tasks.filter((task) => task.id !== id)],
+    });
+  };
+
   render() {
     const { task, tasks } = this.state;
     return (
@@ -67,7 +74,7 @@ class App extends Component {
           />
           <button type="submit">Add Task</button>
         </form>
-        <Overview tasks={tasks} />
+        <Overview tasks={tasks} del={this.onDeleteBtn} />
       </div>
     );
   }

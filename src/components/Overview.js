@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import DeleteTask from "./DeleteBtn";
 // class Tasks extends Component {
 //   constructor(props) {
 //     super(props);
@@ -29,7 +29,10 @@ const Overview = (props) => {
   return (
     <ul>
       {tasks.map((task) => (
-        <li key={task.id}>{task.text}</li>
+        <li key={task.id}>
+          {task.text}
+          <DeleteTask id={task.id} del={props.del} />
+        </li>
       ))}
     </ul>
   );
